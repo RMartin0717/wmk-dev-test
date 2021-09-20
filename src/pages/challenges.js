@@ -34,7 +34,6 @@ const Challenge1 = () => {
    */
   const news = edges.map(edge => new NewsItem(edge.node))
   console.log(news, 'news')
-  //map over newsData and create instances of NewsItem
   //pass array of instances in to Challenge2 to display all cards
   return (
     <Container>

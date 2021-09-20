@@ -17,7 +17,18 @@ import * as React from "react";
  //iterate over news array of NewsItem instances and create cards
  //display all cards
 const Challenge2 = ({ news }) => {
-  return <>Replace with cards here</>;
+  const cards = news.map(newsItem => {
+    const { headline, imageUrl, date, attachmentUrl, newsId, text, outletName, contactName } = newsItem
+    return (
+      <article key={newsId}>
+        <p>{outletName}</p>
+        <h3>{headline}</h3>
+        <p>{text}</p>
+      </article>
+    )
+  })
+
+  return <section>{cards}</section>;
 };
 
 export default Challenge2;
