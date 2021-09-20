@@ -32,7 +32,10 @@ const Challenge1 = () => {
    * Save that structured data to the variable below,
    * creating an array of each NewsItem instance pulled via API
    */
-  const news = "replace this string";
+  const news = edges.map(edge => new NewsItem(edge.node))
+  console.log(news, 'news')
+  //map over newsData and create instances of NewsItem
+  //pass array of instances in to Challenge2 to display all cards
   return (
     <Container>
       <Row className="flex-column">

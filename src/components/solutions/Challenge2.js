@@ -1,8 +1,8 @@
 import * as React from "react";
 
 /**
- * 
- * @param {array} news - an array of NewsItem instances 
+ *
+ * @param {array} news - an array of NewsItem instances
  * @returns News article cards. Feature the data shown in the mockup link
  * here: https://www.figma.com/file/8hAFoMRUo9lLmBeDko0UVr/Untitled?node-id=0%3A1
  * Each card should link to the attachmentUrl in a new window.
@@ -12,8 +12,10 @@ import * as React from "react";
  * The Contact Name should slide in from the right in its place.
  * (BONUS 3) - When the cards are on the mobile breakpoint, hide the article
  * text and the graphic element, so that the cards are shorter in height.
- * 
+ *
  */
+ //iterate over news array of NewsItem instances and create cards
+ //display all cards
 const Challenge2 = ({ news }) => {
   return <>Replace with cards here</>;
 };
