@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+import '../styles.css'
 
 /**
  *
@@ -17,18 +19,48 @@ import * as React from "react";
  //iterate over news array of NewsItem instances and create cards
  //display all cards
 const Challenge2 = ({ news }) => {
+  const addDefaultSrc = (ev) => {
+    ev.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgdGZuRrRUHt80K1sKtAz1GB_BypEfyVr7sQ&usqp=CAU'
+
+  }
+
   const cards = news.map(newsItem => {
     const { headline, imageUrl, date, attachmentUrl, newsId, text, outletName, contactName } = newsItem
     return (
-      <article key={newsId}>
-        <p>{outletName}</p>
-        <h3>{headline}</h3>
-        <p>{text}</p>
-      </article>
+      <Col key={newsId}>
+        <Card className='card'>
+          <Card.Img
+            src={imageUrl}
+            alt='News image'
+            onError={addDefaultSrc}
+            className='card-image'
+          />
+          <Card.ImgOverlay className='overlay'>
+            <Badge className='badge'>
+              {date}
+            </Badge>
+          </Card.ImgOverlay>
+          <Card.Body className='card-body'>
+            <Card.Text className='card-text'>{outletName}</Card.Text>
+            <Card.Title className='card-title'>{headline}</Card.Title>
+            <Card.Img
+              src='https://see.fontimg.com/api/renderfont4/AjYx/eyJyIjoiZnMiLCJoIjoxNzEsInciOjI2MywiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/4qa1/preview.png'
+              className='circle-horizontal-bar'
+            />
+            <Card.Text className='card-text'>{text}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
     )
   })
 
-  return <section>{cards}</section>;
+  return (
+    <Container>
+      <Row xs={1} md={2} lg={4}>
+        {cards}
+      </Row>
+    </Container>
+  )
 };
 
 export default Challenge2;

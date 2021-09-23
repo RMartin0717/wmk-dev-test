@@ -17,7 +17,6 @@ const Challenge1 = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setNewsData(data))
-      // .then(console.log('newsData: ', newsData))
       .catch((err) => console.log("err: ", err));
   }, [setNewsData]);
   const edges = get(newsData, `Results.Result`, []).map((e) => {
@@ -25,7 +24,6 @@ const Challenge1 = () => {
       node: e
     };
   });
-  console.log(edges);
   /**
    * CHALLENGE 2
    * Use the NewsItem class you created to structure data.
@@ -33,8 +31,6 @@ const Challenge1 = () => {
    * creating an array of each NewsItem instance pulled via API
    */
   const news = edges.map(edge => new NewsItem(edge.node))
-  console.log(news, 'news')
-  //pass array of instances in to Challenge2 to display all cards
   return (
     <Container>
       <Row className="flex-column">
